@@ -7,6 +7,7 @@
     <title>钱多多 | 个人主页</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="lightfall.css">
+    <link rel="stylesheet" href="borderglow.css">
 </head>
 <body>
     <!-- Lightfall WebGL 背景 -->
@@ -21,30 +22,77 @@
             <p class="hero-tagline">欢迎来到我的个人主页 · 持续学习，持续记录</p>
         </section>
 
-        <!-- About 区 -->
-        <section class="card">
-            <h2>关于我</h2>
-            <p>电力工程师 / 数据分析爱好者 / AI 工具探索者。日常工作与配电网运维打交道，下班后喜欢研究各种 AI 工具、捣鼓小项目。这个站点是学习用 AI 搭建网站的小练手，未来会持续更新。</p>
-        </section>
+        <!-- 4 张资料卡片（BorderGlow） -->
+        <div class="card-grid">
 
-        <!-- Skills 区 -->
-        <section class="card">
-            <h2>技能</h2>
-            <div class="skill-chips">
-                <span class="chip">配电网运维</span>
-                <span class="chip">数据分析</span>
-                <span class="chip">PPT 制作</span>
-                <span class="chip">AI 工具</span>
-                <span class="chip">内容创作</span>
-                <span class="chip">信息整理</span>
+            <!-- 卡片 1：关于我 -->
+            <div class="border-glow-card"
+                 data-edge-sensitivity="30"
+                 data-glow-color="200 80% 60%"
+                 data-glow-radius="30"
+                 data-glow-intensity="1.0"
+                 data-cone-spread="25"
+                 data-colors='["#7BB8FF","#38bdf8","#A6C8FF"]'>
+                <span class="edge-light"></span>
+                <div class="border-glow-inner">
+                    <h3>🎯 关于我</h3>
+                    <p>电力工程师 / 数据分析爱好者 / AI 工具探索者。日常配电网运维，下班研究 AI Agent 框架。</p>
+                </div>
             </div>
-        </section>
 
-        <!-- Now 区 -->
-        <section class="card">
-            <h2>最近在做什么</h2>
-            <p>研究 AI Agent 框架、自动化工作流、还有怎么用 AI 工具把日常繁琐任务简化掉。喜欢把学到的知识整理成文档分享出去。</p>
-        </section>
+            <!-- 卡片 2：核心技能 -->
+            <div class="border-glow-card"
+                 data-edge-sensitivity="30"
+                 data-glow-color="200 80% 60%"
+                 data-glow-radius="30"
+                 data-glow-intensity="1.0"
+                 data-cone-spread="25"
+                 data-colors='["#7BB8FF","#38bdf8","#A6C8FF"]'>
+                <span class="edge-light"></span>
+                <div class="border-glow-inner">
+                    <h3>⚡ 核心技能</h3>
+                    <div>
+                        <span class="chip-mini">配电网运维</span>
+                        <span class="chip-mini">数据分析</span>
+                        <span class="chip-mini">PPT 制作</span>
+                        <span class="chip-mini">AI 工具</span>
+                        <span class="chip-mini">内容创作</span>
+                        <span class="chip-mini">信息整理</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 卡片 3：最近在玩 -->
+            <div class="border-glow-card"
+                 data-edge-sensitivity="30"
+                 data-glow-color="200 80% 60%"
+                 data-glow-radius="30"
+                 data-glow-intensity="1.0"
+                 data-cone-spread="25"
+                 data-colors='["#7BB8FF","#38bdf8","#A6C8FF"]'>
+                <span class="edge-light"></span>
+                <div class="border-glow-inner">
+                    <h3>🚀 最近在玩</h3>
+                    <p>AI Agent 框架、自动化工作流、怎么用 AI 把日常繁琐任务简化掉。喜欢把学到的知识整理成笔记分享。</p>
+                </div>
+            </div>
+
+            <!-- 卡片 4：兴趣爱好 -->
+            <div class="border-glow-card"
+                 data-edge-sensitivity="30"
+                 data-glow-color="200 80% 60%"
+                 data-glow-radius="30"
+                 data-glow-intensity="1.0"
+                 data-cone-spread="25"
+                 data-colors='["#7BB8FF","#38bdf8","#A6C8FF"]'>
+                <span class="edge-light"></span>
+                <div class="border-glow-inner">
+                    <h3>🍜 兴趣爱好</h3>
+                    <p>美食探店、折腾 AI 工具、写公众号、偶尔露营。一个爱吃爱玩的电力攻城狮。</p>
+                </div>
+            </div>
+
+        </div>
 
         <!-- Footer -->
         <footer class="footer">
@@ -52,7 +100,9 @@
         </footer>
     </main>
 
-    <!-- Lightfall 背景脚本（ES module，从 jsdelivr 加载 ogl） -->
+    <!-- 脚本：Lightfall 背景（ES module，从 jsdelivr 加载 ogl） -->
     <script type="module" src="lightfall.js"></script>
+    <!-- 脚本：BorderGlow 卡片交互 -->
+    <script src="borderglow.js"></script>
 </body>
 </html>

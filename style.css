@@ -100,82 +100,27 @@ body {
     color: var(--text-muted);
 }
 
-/* Card - 毛玻璃 */
-.card {
-    background: var(--card-bg);
-    border-radius: var(--radius);
-    padding: 2rem;
+/* Card Grid - 4 卡片响应式布局 */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);  /* 桌面：4 列一行 */
+    gap: 1rem;
     margin-bottom: 1.5rem;
-    box-shadow: var(--shadow);
-    border: 1px solid var(--card-border);
-    backdrop-filter: blur(12px) saturate(180%);
-    -webkit-backdrop-filter: blur(12px) saturate(180%);
-    transition: box-shadow var(--transition), transform var(--transition), border-color var(--transition);
+}
+
+/* 卡片入场动画 */
+.border-glow-card {
     opacity: 0;
     transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
 }
 
-.card.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
+.border-glow-card:nth-child(1) { animation-delay: 0.1s; }
+.border-glow-card:nth-child(2) { animation-delay: 0.2s; }
+.border-glow-card:nth-child(3) { animation-delay: 0.3s; }
+.border-glow-card:nth-child(4) { animation-delay: 0.4s; }
 
-.card:hover {
-    box-shadow: var(--shadow-hover);
-    transform: translateY(-2px);
-    border-color: rgba(123, 184, 255, 0.3);
-}
-
-.card h2 {
-    font-size: 1.25rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    color: var(--primary);
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.card h2::before {
-    content: "";
-    width: 4px;
-    height: 1.25rem;
-    background: var(--primary);
-    border-radius: 2px;
-    box-shadow: 0 0 12px rgba(123, 184, 255, 0.6);
-}
-
-.card p {
-    color: var(--text-light);
-    line-height: 1.75;
-}
-
-/* Skill Chips */
-.skill-chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-}
-
-.chip {
-    display: inline-block;
-    padding: 0.45rem 1rem;
-    background: var(--primary-light);
-    color: var(--primary);
-    border-radius: 100px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    border: 1px solid transparent;
-    transition: background var(--transition), color var(--transition), transform var(--transition), border-color var(--transition);
-    cursor: default;
-}
-
-.chip:hover {
-    background: rgba(123, 184, 255, 0.25);
-    color: #ffffff;
-    transform: translateY(-1px);
-    border-color: rgba(123, 184, 255, 0.4);
-}
+/* 老 .card 样式已废弃（由 BorderGlow 卡片替代） */
 
 /* Footer */
 .footer {
@@ -205,6 +150,12 @@ body {
 }
 
 /* Responsive */
+@media (max-width: 900px) {
+    .card-grid {
+        grid-template-columns: repeat(2, 1fr);  /* 平板：2x2 */
+    }
+}
+
 @media (max-width: 600px) {
     .container {
         padding: 2rem 1rem 1rem;
@@ -223,7 +174,7 @@ body {
         height: 80px;
         font-size: 2rem;
     }
-    .card {
-        padding: 1.5rem;
+    .card-grid {
+        grid-template-columns: 1fr;  /* 手机：1 列 */
     }
 }
