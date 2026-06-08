@@ -17,3 +17,10 @@ yarn-error.log*
 
 # Node（将来可能加）
 node_modules/
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
