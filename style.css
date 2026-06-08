@@ -1,23 +1,23 @@
 /* ============================================
    钱多多 · 个人主页样式
-   风格 A · 清冷蓝
-   主色：#1e88e5（国网蓝）
+   风格 A · 清冷蓝（暗色版 · 配 Lightfall 背景）
+   主色：#7BB8FF（亮蓝，暗背景下更清晰）
    ============================================ */
 
 :root {
-    --primary: #1e88e5;
-    --primary-dark: #1565c0;
-    --primary-light: rgba(30, 136, 229, 0.1);
-    --primary-lighter: rgba(30, 136, 229, 0.05);
-    --bg: #f8fafc;
-    --text: #1a202c;
-    --text-light: #4a5568;
-    --text-muted: #718096;
-    --card-bg: #ffffff;
-    --border: #e2e8f0;
-    --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.08);
-    --radius: 12px;
+    --primary: #7BB8FF;
+    --primary-dark: #1e88e5;
+    --primary-light: rgba(123, 184, 255, 0.15);
+    --primary-lighter: rgba(123, 184, 255, 0.08);
+    --bg: #0a1929;             /* 深蓝背景（让 Lightfall 隧道突出） */
+    --text: #f1f5f9;           /* 主文字：近白 */
+    --text-light: #cbd5e1;     /* 次文字：浅灰 */
+    --text-muted: #94a3b8;     /* 弱化文字 */
+    --card-bg: rgba(255, 255, 255, 0.06);  /* 半透卡片 */
+    --card-border: rgba(255, 255, 255, 0.12);
+    --shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    --shadow-hover: 0 8px 32px rgba(0, 0, 0, 0.4);
+    --radius: 16px;
     --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -41,6 +41,7 @@ body {
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
 }
 
 /* Container */
@@ -48,6 +49,8 @@ body {
     max-width: 720px;
     margin: 0 auto;
     padding: 4rem 1.5rem 2rem;
+    position: relative;
+    z-index: 1;  /* 确保内容在 Lightfall 之上 */
 }
 
 /* Hero */
@@ -63,7 +66,7 @@ body {
     width: 96px;
     height: 96px;
     margin: 0 auto 1.5rem;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    background: linear-gradient(135deg, #7BB8FF 0%, #1e88e5 100%);
     color: white;
     border-radius: 50%;
     display: flex;
@@ -71,22 +74,23 @@ body {
     justify-content: center;
     font-size: 2.5rem;
     font-weight: 700;
-    box-shadow: 0 8px 24px rgba(30, 136, 229, 0.3);
+    box-shadow: 0 8px 24px rgba(123, 184, 255, 0.4);
 }
 
 .hero-title {
     font-size: 3.5rem;
     font-weight: 800;
-    color: var(--primary);
+    color: var(--text);
     letter-spacing: -0.02em;
     margin-bottom: 0.5rem;
     line-height: 1.1;
+    text-shadow: 0 2px 16px rgba(123, 184, 255, 0.3);
 }
 
 .hero-subtitle {
     font-size: 1.5rem;
-    color: var(--text-light);
-    font-weight: 300;
+    color: var(--primary);
+    font-weight: 400;
     margin-bottom: 1rem;
     letter-spacing: 0.05em;
 }
@@ -96,15 +100,17 @@ body {
     color: var(--text-muted);
 }
 
-/* Card */
+/* Card - 毛玻璃 */
 .card {
     background: var(--card-bg);
     border-radius: var(--radius);
     padding: 2rem;
     margin-bottom: 1.5rem;
     box-shadow: var(--shadow);
-    border: 1px solid var(--border);
-    transition: box-shadow var(--transition), transform var(--transition);
+    border: 1px solid var(--card-border);
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    transition: box-shadow var(--transition), transform var(--transition), border-color var(--transition);
     opacity: 0;
     transform: translateY(20px);
 }
@@ -117,6 +123,7 @@ body {
 .card:hover {
     box-shadow: var(--shadow-hover);
     transform: translateY(-2px);
+    border-color: rgba(123, 184, 255, 0.3);
 }
 
 .card h2 {
@@ -135,6 +142,7 @@ body {
     height: 1.25rem;
     background: var(--primary);
     border-radius: 2px;
+    box-shadow: 0 0 12px rgba(123, 184, 255, 0.6);
 }
 
 .card p {
@@ -157,14 +165,16 @@ body {
     border-radius: 100px;
     font-size: 0.9rem;
     font-weight: 500;
-    transition: background var(--transition), transform var(--transition);
+    border: 1px solid transparent;
+    transition: background var(--transition), color var(--transition), transform var(--transition), border-color var(--transition);
     cursor: default;
 }
 
 .chip:hover {
-    background: var(--primary);
-    color: white;
+    background: rgba(123, 184, 255, 0.25);
+    color: #ffffff;
     transform: translateY(-1px);
+    border-color: rgba(123, 184, 255, 0.4);
 }
 
 /* Footer */
@@ -176,7 +186,7 @@ body {
 }
 
 .footer .heart {
-    color: #e53e3e;
+    color: #f43f5e;
     display: inline-block;
     animation: heartbeat 1.5s ease-in-out infinite;
 }

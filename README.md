@@ -13,7 +13,9 @@
 ```
 qdd-website/
 ├── index.html      # 主页内容
-├── style.css       # 样式（清冷蓝主题）
+├── style.css       # 样式（清冷蓝·暗色版）
+├── lightfall.js    # Lightfall WebGL 背景（vanilla JS 版）
+├── lightfall.css   # 背景容器样式
 ├── script.js       # 滚动动画
 ├── README.md       # 本文件
 └── .gitignore
@@ -56,21 +58,39 @@ python3 -m http.server 8000
 
 ## ✏️ 自定义内容
 
+### 改 Lightfall 背景效果
+
+编辑 `lightfall.js` 顶部的 `CONFIG` 对象：
+
+```js
+const CONFIG = {
+  colors: ['#A6C8FF', '#1e88e5', '#1565c0', '#7BB8FF'],  // 4 个颜色
+  backgroundColor: '#0a1929',
+  speed: 0.5,                  // 0-2
+  streakCount: 4,              // 1-16
+  glow: 1,
+  density: 0.6,
+  twinkle: 0.8,
+  zoom: 3,
+  mouseInteraction: true,      // false 关闭鼠标跟随
+};
+```
+
 ### 改文字
 
 直接编辑 `index.html`：
 - `<h1 class="hero-title">` 改大标题
 - About / Skills / Now 三个 section 改对应段落
 
-### 改颜色
+### 改主色
 
 编辑 `style.css` 顶部的 `:root` 变量：
 
 ```css
 :root {
-    --primary: #1e88e5;        /* 主色：改这一行全站颜色跟着变 */
-    --primary-dark: #1565c0;   /* 主色加深（hover/渐变用） */
-    --bg: #f8fafc;             /* 背景色 */
+    --primary: #7BB8FF;        /* 主色：改这一行全站颜色跟着变 */
+    --primary-dark: #1e88e5;
+    --bg: #0a1929;             /* 背景色 */
     /* ... */
 }
 ```
@@ -93,16 +113,19 @@ git push
 ## 🛠️ 技术栈
 
 - HTML5
-- CSS3（CSS Variables / Flexbox / 动画 / 媒体查询）
-- 原生 JavaScript（IntersectionObserver API）
-- 无任何依赖，无构建步骤
+- CSS3（CSS Variables / Flexbox / 动画 / 媒体查询 / backdrop-filter 毛玻璃）
+- 原生 JavaScript（IntersectionObserver API + WebGL via ogl）
+- **ogl 1.0.11**（WebGL 工具库，从 jsdelivr CDN ES module 加载）
+- **Lightfall 组件**（来自 [React Bits](https://reactbits.dev) 的开源 WebGL 背景效果）
+- 无任何构建步骤
 
 ## 📝 后续计划
 
 - [ ] 添加更多内容（项目展示 / 博客 / 时间线）
 - [ ] 自定义域名
 - [ ] SEO 优化
-- [ ] 暗色模式
+- [ ] L2 互动：暗色模式切换（或者颜色主题切换）
+- [ ] L3 酷炫：加 3D 头像 / GSAP 滚动动画
 
 ---
 

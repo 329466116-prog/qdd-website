@@ -6,8 +6,12 @@
     <meta name="description" content="钱多多的个人主页 - 电力工程师 / 数据分析 / AI 工具探索者">
     <title>钱多多 | 个人主页</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="lightfall.css">
 </head>
 <body>
+    <!-- Lightfall WebGL 背景 -->
+    <div id="lightfall-bg"></div>
+
     <main class="container">
         <!-- Hero 区 -->
         <section class="hero">
@@ -47,6 +51,8 @@
             <p>© 2026 钱多多 · Built with <span class="heart">❤️</span> and AI</p>
         </footer>
     </main>
-    <script src="script.js"></script>
+
+    <!-- Lightfall 背景脚本（ES module，从 jsdelivr 加载 ogl） -->
+    <script type="module" src="lightfall.js"></script>
 </body>
 </html>
