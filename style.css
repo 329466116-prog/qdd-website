@@ -37,7 +37,9 @@ body {
                  "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
     background: var(--bg);
     color: var(--text);
-    line-height: 1.6;
+    /* 基础字号 16 → 18,整体大一些 */
+    font-size: 18px;
+    line-height: 1.7;
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -48,7 +50,8 @@ body {
 .container {
     max-width: 720px;
     margin: 0 auto;
-    padding: 4rem 1.5rem 2rem;
+    /* padding-top 加大,为顶部 CardNav (约 70px) 留位,防止与 Hero 头像重叠 */
+    padding: 5.5rem 1.5rem 2rem;
     position: relative;
     z-index: 1;  /* 确保内容在 Lightfall 之上 */
 }
@@ -78,7 +81,7 @@ body {
 }
 
 .hero-title {
-    font-size: 3.5rem;
+    font-size: 4rem;
     font-weight: 800;
     color: var(--text);
     letter-spacing: -0.02em;
@@ -88,7 +91,7 @@ body {
 }
 
 .hero-subtitle {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     color: var(--primary);
     font-weight: 400;
     margin-bottom: 1rem;
@@ -96,7 +99,7 @@ body {
 }
 
 .hero-tagline {
-    font-size: 1rem;
+    font-size: 1.125rem;
     color: var(--text-muted);
 }
 
@@ -127,7 +130,7 @@ body {
     text-align: center;
     padding: 2rem 0 1rem;
     color: var(--text-muted);
-    font-size: 0.875rem;
+    font-size: 1rem;
 }
 
 .footer .heart {
@@ -158,16 +161,17 @@ body {
 
 @media (max-width: 600px) {
     .container {
-        padding: 2rem 1rem 1rem;
+        /* 手机端:CardNav 距顶 1em + 60px,需 padding-top ~5rem 让出位置 */
+        padding: 5rem 1rem 1rem;
     }
     .hero {
         padding: 1rem 0 2rem;
     }
     .hero-title {
-        font-size: 2.5rem;
+        font-size: 3rem;
     }
     .hero-subtitle {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
     }
     .hero-avatar {
         width: 80px;

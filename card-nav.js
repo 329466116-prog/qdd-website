@@ -13,7 +13,7 @@
     return
   }
 
-  const { useState, useLayoutEffect, useRef } = React
+  const { useState, useLayoutEffect, useEffect, useRef } = React
   const { createRoot } = ReactDOM
   const h = React.createElement
 
@@ -56,6 +56,10 @@
     const navRef = useRef(null)
     const cardsRef = useRef([])
     const tlRef = useRef(null)
+    // 记录按下位置，用于判断是 tap 还是拖动（防止移动端滑动误触）
+    const startPosRef = useRef({ x: 0, y: 0 })
+    // 用 ref 始终拿到最新的 toggleMenu
+    const toggleMenuRef = useRef(null)
 
     const calculateHeight = () => {
       const navEl = navRef.current
@@ -166,6 +170,25 @@
       }
     }
 
+    // 始终同步 toggleMenu 到 ref,供 scroll/touchmove listener 调用
+    toggleMenuRef.current = toggleMenu
+
+    // 移动端：展开时用户滚动/touchmove 自动关闭（防止遮挡内容）
+    useEffect(() => {
+      if (!isExpanded) return
+      const handleScroll = () => {
+        if (toggleMenuRef.current) {
+          toggleMenuRef.current()
+        }
+      }
+      window.addEventListener('scroll', handleScroll, { passive: true })
+      window.addEventListener('touchmove', handleScroll, { passive: true })
+      return () => {
+        window.removeEventListener('scroll', handleScroll)
+        window.removeEventListener('touchmove', handleScroll)
+      }
+    }, [isExpanded])
+
     const setCardRef = (i) => (el) => {
       if (el) cardsRef.current[i] = el
     }
@@ -269,9 +292,9 @@
       textColor: '#fff',
       links: [
         {
-          label: 'Prisma',
+          label: '自我介绍',
           href: 'https://prisma-studio.pages.dev',
-          ariaLabel: 'Prisma 创意工作室',
+          ariaLabel: '自我介绍',
         },
         { label: '电力行业 PPT', href: '#', ariaLabel: '电力行业汇报 PPT' },
       ],
