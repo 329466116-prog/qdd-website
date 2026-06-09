@@ -25,18 +25,32 @@ qdd-website/
 
 ## 🖥️ 本地预览
 
-**方法 1：直接打开**
+**推荐：用 npm 脚本（统一入口）**
 
 ```bash
-open index.html
+npm run dev
+# → npx serve 启动 → http://localhost:8000
 ```
 
-**方法 2：起个本地服务（推荐，模拟线上）**
+**备选 1：用 Python（零依赖）**
 
 ```bash
-python3 -m http.server 8000
-# 浏览器访问 http://localhost:8000
+npm run dev:py
+# → python3 -m http.server 8000
 ```
+
+**备选 2：live-server（自动刷新浏览器，文件改了不用 F5）**
+
+```bash
+npm run dev:live
+```
+
+> **修改 → 预览 → 满意后再 push** 的标准流程：
+> 1. `npm run dev`（后台跑着，文件改了浏览器刷新即可）
+> 2. 改 `index.html` / `style.css` / `card-nav.js` 等
+> 3. 满意后 `git add . && git commit -m "..." && git push`（Cloudflare Pages 自动部署）
+
+**不推荐的方法**：直接 `open index.html` 在 file:// 协议下打开。`card-nav.js` 用了 ES module + 跨域 CDN 资源，部分浏览器在 file:// 下会被 CORS 拦住，本地服务器模式能完全模拟线上。
 
 ## ☁️ Cloudflare Pages 托管（详细步骤）
 
