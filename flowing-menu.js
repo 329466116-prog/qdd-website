@@ -177,22 +177,22 @@ const FLOWING_ITEMS = [
   {
     link: '#about',
     text: '关于我 · 电力 AI 工程师',
-    image: 'img/menu-1-about.png'
+    image: 'img/menu-1-about.jpg'
   },
   {
     link: '#skills',
     text: '核心技能 · AI 工具 + 数据分析',
-    image: 'img/menu-2-skills.png'
+    image: 'img/menu-2-skills.jpg'
   },
   {
     link: '#now',
     text: '最近在玩 · AI Agent + 自动化',
-    image: 'img/menu-3-now.png'
+    image: 'img/menu-3-now.jpg'
   },
   {
     link: '#hobbies',
     text: '兴趣爱好 · 美食 + 折腾 AI',
-    image: 'img/menu-4-hobbies.png'
+    image: 'img/menu-4-hobbies.jpg'
   }
 ];
 
