@@ -273,7 +273,7 @@
           href: 'https://prisma-studio.pages.dev',
           ariaLabel: 'Prisma 创意工作室',
         },
-        { label: '配电网 PPT', href: '#', ariaLabel: '配电网数智化运维 PPT' },
+        { label: '电力行业 PPT', href: '#', ariaLabel: '电力行业汇报 PPT' },
       ],
     },
     {
