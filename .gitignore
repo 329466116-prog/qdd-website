@@ -18,3 +18,4 @@ yarn-error.log*
 # Node（将来可能加）
 node_modules/
 qdd-shot.mjs
+live-check.mjs
