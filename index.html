@@ -8,8 +8,12 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="lightfall.css">
     <link rel="stylesheet" href="borderglow.css">
+    <link rel="stylesheet" href="card-nav.css">
 </head>
 <body>
+    <!-- CardNav 顶部导航（React Bits） -->
+    <div id="card-nav-root"></div>
+
     <!-- Lightfall WebGL 背景 -->
     <div id="lightfall-bg"></div>
 
@@ -26,7 +30,7 @@
         <div class="card-grid">
 
             <!-- 卡片 1：关于我 -->
-            <div class="border-glow-card"
+            <div id="about" class="border-glow-card"
                  data-edge-sensitivity="30"
                  data-glow-color="200 80% 60%"
                  data-glow-radius="30"
@@ -41,7 +45,7 @@
             </div>
 
             <!-- 卡片 2：核心技能 -->
-            <div class="border-glow-card"
+            <div id="skills" class="border-glow-card"
                  data-edge-sensitivity="30"
                  data-glow-color="200 80% 60%"
                  data-glow-radius="30"
@@ -63,7 +67,7 @@
             </div>
 
             <!-- 卡片 3：最近在玩 -->
-            <div class="border-glow-card"
+            <div id="now" class="border-glow-card"
                  data-edge-sensitivity="30"
                  data-glow-color="200 80% 60%"
                  data-glow-radius="30"
@@ -78,7 +82,7 @@
             </div>
 
             <!-- 卡片 4：兴趣爱好 -->
-            <div class="border-glow-card"
+            <div id="hobbies" class="border-glow-card"
                  data-edge-sensitivity="30"
                  data-glow-color="200 80% 60%"
                  data-glow-radius="30"
@@ -104,5 +108,11 @@
     <script type="module" src="lightfall.js"></script>
     <!-- 脚本：BorderGlow 卡片交互 -->
     <script src="borderglow.js"></script>
+    <!-- CardNav 依赖：React + ReactDOM + GSAP（CDN） -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <!-- CardNav 组件 -->
+    <script src="card-nav.js"></script>
 </body>
 </html>
