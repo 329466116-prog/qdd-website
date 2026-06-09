@@ -1,0 +1,27 @@
+/* ============================================
+   字体声明
+   英文走 Google Fonts CDN（swap，立即 fallback）
+   中文走本地 TTF（block，阻塞渲染避免宋体回退）
+   ============================================ */
+
+/* 中文：霞鹜文楷（楷书，温暖有人情味） */
+@font-face {
+  font-family: 'LXGW WenKai';
+  src: url('./fonts/LXGWWenKai-Regular.ttf') format('truetype');
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: block;  /* 关键：阻塞渲染等字体，避免静默回退到宋体 */
+}
+
+/* 全局字体栈：
+   - 英文标题/正文：Inter（无衬线，干净）
+   - 中文：LXGW WenKai（楷书）
+   - 衬线斜体英文：Instrument Serif（标题装饰）
+   - 代码/数字：JetBrains Mono */
+
+:root {
+  --font-sans: 'Inter', 'LXGW WenKai', system-ui, -apple-system, sans-serif;
+  --font-cn: 'LXGW WenKai', 'Inter', system-ui, sans-serif;
+  --font-serif: 'Instrument Serif', 'LXGW WenKai', serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace;
+}

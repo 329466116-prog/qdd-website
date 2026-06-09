@@ -45,7 +45,7 @@
       items,
       className = '',
       ease = 'power3.out',
-      baseColor = '#fff',
+      baseColor = 'transparent',
       menuColor,
       buttonBgColor,
       buttonTextColor,
@@ -239,7 +239,7 @@
                 window.open('https://prisma-studio.pages.dev', '_blank')
               },
             },
-            'Prisma 工作室'
+            '我是谁？'
           )
         ),
         // 卡片内容
@@ -341,10 +341,10 @@
         logo: logoSvg,
         logoAlt: '钱多多',
         items: cardNavItems,
-        baseColor: '#fff',
-        menuColor: '#000',
-        buttonBgColor: '#111',
-        buttonTextColor: '#fff',
+        baseColor: 'transparent',
+        menuColor: '#fff',                 // 汉堡按钮颜色：黑 → 白
+        buttonBgColor: '#fff',              // Prisma 按钮背景：黑 → 白
+        buttonTextColor: '#000',            // Prisma 按钮文字：白 → 黑
         ease: 'power3.out',
       })
     )

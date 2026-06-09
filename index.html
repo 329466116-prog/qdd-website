@@ -5,17 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="钱多多的个人主页 - 电力工程师 / 数据分析 / AI 工具探索者">
     <title>钱多多 | 个人主页</title>
+    <!-- Google Fonts：Inter / Instrument Serif Italic / JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- 本地字体声明 + 字体栈变量 -->
+    <link rel="stylesheet" href="fonts.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="lightfall.css">
-    <link rel="stylesheet" href="borderglow.css">
+    <link rel="stylesheet" href="floating-lines.css">
+    <link rel="stylesheet" href="flowing-menu.css">
     <link rel="stylesheet" href="card-nav.css">
+    <link rel="stylesheet" href="star-border.css">
+    <link rel="stylesheet" href="electric-border.css">
 </head>
 <body>
     <!-- CardNav 顶部导航（React Bits） -->
     <div id="card-nav-root"></div>
 
-    <!-- Lightfall WebGL 背景 -->
-    <div id="lightfall-bg"></div>
+    <!-- FloatingLines WebGL 背景 -->
+    <div id="floating-lines-bg"></div>
 
     <main class="container">
         <!-- Hero 区 -->
@@ -26,77 +34,8 @@
             <p class="hero-tagline">欢迎来到我的个人主页 · 持续学习，持续记录</p>
         </section>
 
-        <!-- 4 张资料卡片（BorderGlow） -->
-        <div class="card-grid">
-
-            <!-- 卡片 1：关于我 -->
-            <div id="about" class="border-glow-card"
-                 data-edge-sensitivity="30"
-                 data-glow-color="200 80% 60%"
-                 data-glow-radius="30"
-                 data-glow-intensity="1.0"
-                 data-cone-spread="25"
-                 data-colors='["#7BB8FF","#38bdf8","#A6C8FF"]'>
-                <span class="edge-light"></span>
-                <div class="border-glow-inner">
-                    <h3>🎯 关于我</h3>
-                    <p>电力 AI 工程师 / 数据分析爱好者 / AI 工具探索者。日常做 AI 应用落地，下班研究 AI Agent 框架。</p>
-                </div>
-            </div>
-
-            <!-- 卡片 2：核心技能 -->
-            <div id="skills" class="border-glow-card"
-                 data-edge-sensitivity="30"
-                 data-glow-color="200 80% 60%"
-                 data-glow-radius="30"
-                 data-glow-intensity="1.0"
-                 data-cone-spread="25"
-                 data-colors='["#7BB8FF","#38bdf8","#A6C8FF"]'>
-                <span class="edge-light"></span>
-                <div class="border-glow-inner">
-                    <h3>⚡ 核心技能</h3>
-                    <div>
-                        <span class="chip-mini">电力 AI 应用</span>
-                        <span class="chip-mini">数据分析</span>
-                        <span class="chip-mini">PPT 制作</span>
-                        <span class="chip-mini">AI 工具</span>
-                        <span class="chip-mini">内容创作</span>
-                        <span class="chip-mini">信息整理</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 卡片 3：最近在玩 -->
-            <div id="now" class="border-glow-card"
-                 data-edge-sensitivity="30"
-                 data-glow-color="200 80% 60%"
-                 data-glow-radius="30"
-                 data-glow-intensity="1.0"
-                 data-cone-spread="25"
-                 data-colors='["#7BB8FF","#38bdf8","#A6C8FF"]'>
-                <span class="edge-light"></span>
-                <div class="border-glow-inner">
-                    <h3>🚀 最近在玩</h3>
-                    <p>AI Agent 框架、自动化工作流、怎么用 AI 把日常繁琐任务简化掉。喜欢把学到的知识整理成笔记分享。</p>
-                </div>
-            </div>
-
-            <!-- 卡片 4：兴趣爱好 -->
-            <div id="hobbies" class="border-glow-card"
-                 data-edge-sensitivity="30"
-                 data-glow-color="200 80% 60%"
-                 data-glow-radius="30"
-                 data-glow-intensity="1.0"
-                 data-cone-spread="25"
-                 data-colors='["#7BB8FF","#38bdf8","#A6C8FF"]'>
-                <span class="edge-light"></span>
-                <div class="border-glow-inner">
-                    <h3>🍜 兴趣爱好</h3>
-                    <p>美食探店、折腾 AI 工具、写公众号、偶尔露营。一个爱吃爱玩的电力攻城狮。</p>
-                </div>
-            </div>
-
-        </div>
+        <!-- FlowingMenu 资料区（React Bits） -->
+        <div id="flowing-menu-root" class="flowing-menu-container"></div>
 
         <!-- Footer -->
         <footer class="footer">
@@ -104,15 +43,19 @@
         </footer>
     </main>
 
-    <!-- 脚本：Lightfall 背景（ES module，从 jsdelivr 加载 ogl） -->
-    <script type="module" src="lightfall.js"></script>
-    <!-- 脚本：BorderGlow 卡片交互 -->
-    <script src="borderglow.js"></script>
-    <!-- CardNav 依赖：React + ReactDOM + GSAP（CDN） -->
+    <!-- 脚本：FloatingLines 背景（ES module，从 jsdelivr 加载 three.js） -->
+    <script type="module" src="floating-lines.js"></script>
+    <!-- React + ReactDOM + GSAP（CDN，FlowingMenu / CardNav 共享） -->
     <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-    <!-- CardNav 组件 -->
+    <!-- 脚本：FlowingMenu 组件（依赖 React + GSAP） -->
+    <script src="flowing-menu.js"></script>
+    <!-- 脚本：StarBorder 包装（vanilla） -->
+    <script src="star-border.js"></script>
+    <!-- 脚本：ElectricBorder 头像（vanilla） -->
+    <script src="electric-border.js"></script>
+    <!-- 脚本：CardNav 组件（依赖 React + GSAP） -->
     <script src="card-nav.js"></script>
 </body>
 </html>

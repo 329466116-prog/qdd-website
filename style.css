@@ -33,8 +33,7 @@ html {
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-                 "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    font-family: var(--font-sans);  /* Inter + LXGW WenKai fallback */
     background: var(--bg);
     color: var(--text);
     /* 基础字号 16 → 18,整体大一些 */
@@ -81,24 +80,28 @@ body {
 }
 
 .hero-title {
+    font-family: var(--font-cn);  /* LXGW WenKai 楷书，温暖有人情味 */
     font-size: 4rem;
-    font-weight: 800;
+    font-weight: 700;
     color: var(--text);
-    letter-spacing: -0.02em;
+    letter-spacing: 0.02em;
     margin-bottom: 0.5rem;
     line-height: 1.1;
     text-shadow: 0 2px 16px rgba(123, 184, 255, 0.3);
 }
 
 .hero-subtitle {
+    font-family: var(--font-serif);  /* Instrument Serif Italic，优雅装饰 */
+    font-style: italic;
     font-size: 1.75rem;
     color: var(--primary);
     font-weight: 400;
     margin-bottom: 1rem;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.02em;
 }
 
 .hero-tagline {
+    font-family: var(--font-sans);
     font-size: 1.125rem;
     color: var(--text-muted);
 }

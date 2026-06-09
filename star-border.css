@@ -1,0 +1,103 @@
+/* ============================================
+   StarBorder 卡片（原 React Bits CSS 1:1 移植 + 微调）
+   颜色 #0016ff，speed 5s
+   ============================================ */
+
+.star-border-container {
+  display: block;             /* 覆盖默认 inline-block（hero 是 <section>）*/
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  margin: 0 auto;
+  max-width: 720px;          /* 跟 CardNav + FlowingMenu 同宽 */
+}
+
+.star-border-container .inner-content {
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(10, 25, 41, 0.85);  /* 半透明深蓝，让 FloatingLines 微微透出 */
+  color: white;
+  text-align: center;
+  padding: 48px 40px;
+  border-radius: 20px;
+  z-index: 1;
+  /* 替代 .hero 原本的入场动画（fadeInUp） */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.border-gradient-bottom {
+  position: absolute;
+  width: 300%;
+  height: 50%;
+  opacity: 0.85;
+  bottom: -12px;
+  right: -250%;
+  border-radius: 50%;
+  animation: star-movement-bottom linear infinite alternate;
+  z-index: 0;
+  /* 颜色由 JS inline style 注入（从 hero data 属性读） */
+}
+
+.border-gradient-top {
+  position: absolute;
+  opacity: 0.85;
+  width: 300%;
+  height: 50%;
+  top: -12px;
+  left: -250%;
+  border-radius: 50%;
+  animation: star-movement-top linear infinite alternate;
+  z-index: 0;
+}
+
+@keyframes star-movement-bottom {
+  0%   { transform: translate(0%, 0%);     opacity: 1; }
+  100% { transform: translate(-100%, 0%);  opacity: 0; }
+}
+
+@keyframes star-movement-top {
+  0%   { transform: translate(0%, 0%);    opacity: 1; }
+  100% { transform: translate(100%, 0%);  opacity: 0; }
+}
+
+/* 取消 .hero 原本的 padding / animation（由 inner-content 接管） */
+.hero {
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  animation: none;
+  opacity: 1;
+  transform: none;
+}
+
+/* 头像在卡片内的尺寸微调 */
+.hero-avatar {
+  width: 80px;
+  height: 80px;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.hero-title {
+  font-size: 3rem;             /* 略小，4rem 在 560px 卡片里太挤 */
+  margin-bottom: 0.5rem;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.hero-tagline {
+  font-size: 1rem;
+}
+
+/* fadeInUp 动画（在 style.css 里有，这里复用） */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
