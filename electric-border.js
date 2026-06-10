@@ -12,7 +12,7 @@ const EB_CONFIG = {
   chaos: 0.12,             // 扭曲强度（0=无扭曲，越大越乱）
   borderRadius: 50,        // 圆角（50% 圆形，50px 也行）
   thickness: 2,            // 厚度（影响 glow 层边框粗细）
-  imagePath: 'img/head.png', // 头像图片路径
+  imagePath: 'https://s3.bmp.ovh/2026/06/10/AztCCFKU.png', // 头像图片路径
 };
 
 function applyElectricBorder() {
